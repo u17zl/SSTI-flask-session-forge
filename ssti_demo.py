@@ -4,7 +4,7 @@ import uuid
 from flask import Flask, request, make_response, session,render_template, url_for, redirect, render_template_string
 
 app = Flask(__name__)
-app.config['SECRET_KEY']='Hello Ka Wing!'
+app.config['SECRET_KEY']='Hello World!'
 
 @app.route('/')
 def index():
