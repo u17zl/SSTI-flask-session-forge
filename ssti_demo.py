@@ -21,7 +21,7 @@ def index():
             <input type="submit" value="登录">
             </form>""" %url_for("login")
 
-@app.route("/content/", methods=['GET'])
+@app.route("/content", methods=['GET'])
 def content():
     content = request.args.get("content")
     return render_template_string(content)
