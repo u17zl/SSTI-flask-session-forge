@@ -32,14 +32,14 @@ def content():
 
 - **If we try some XSS:** 
 
-`/content?content=<script>alert(1)</script>`
+`/content?content=<script>alert(1)</script>`  
 `alert(1) in window`
 
 XSS successfully runs in this way. 
 
 - **Let us see another vulnerbility:**
 
-`/content?content={{2*2}}`
+`/content?content={{2*2}}`  
 `4`
 
 Expression is excuted in double bracket and return its value
@@ -62,7 +62,7 @@ def content():
     return render_template_string("{{html}}", html=content)
 ```
 
-`/content?content=<script>alert(1)</script>`
+`/content?content=<script>alert(1)</script>`  
 `<script>alert(1)</script>`
 
 In this case, the JavaScript code is output as it is, because template engines generally default to encoding and escaping the rendered variable values, so there will be no xss or eval like dangerous operations.
@@ -74,5 +74,5 @@ The main problem is that in the process of web application template rendering, t
 Flask uses jinja2 as a rendering template, so when rendering a template, variables should be transferd into plain string so that it can ensure a safe rendering.
 
 ## Reference  
-https://github.com/noraj/flask-session-cookie-manager
-https://blog.csdn.net/qq_39850969/article/details/86581393
+[https://github.com/noraj/flask-session-cookie-manager](https://github.com/noraj/flask-session-cookie-manager)  
+[https://blog.csdn.net/qq_39850969/article/details/86581393](https://blog.csdn.net/qq_39850969/article/details/86581393)
